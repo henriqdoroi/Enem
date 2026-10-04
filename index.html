@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+<!-- Rastreamento Universal -->
+<script>
+(function(){fetch("https://zgvqgbcehjpfjxmnyvxq.supabase.co/functions/v1/track-pixel",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({tracking_id:"c8475ab9-fe06-4453-b423-230a5d11a010",url:location.href,referrer:document.referrer}),keepalive:!0}).catch(function(){})})();
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+  ttq.load('D5MPK4BC77U6NESDOB0G');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1223307489902324');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+<style>
+  :root {
+    --enem-blue: #1b4f9c;
+    --enem-blue-dark: #12366d;
+    --enem-navy: #0b1f44;
+    --enem-yellow: #ffc72c;
+    --paper: #ffffff;
+    --ink: #1b1f27;
+    --ink-soft: #4a5263;
+    --line: #d7dce5;
+    --bg: #eef1f6;
+    --red: #d62f2f;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(rgba(27,79,156,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(27,79,156,.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  svg.icon { width: 1em; height: 1em; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+
+  .app { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; }
+  .app.fullscreen { padding: 0; }
+
+  /* Topo estilo cabeçalho de prova */
+  .topbar { width: 100%; max-width: 520px; margin-bottom: 14px; }
+  .topbar-row { display: flex; align-items: center; justify-content: space-between; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--enem-blue-dark); margin-bottom: 8px; }
+  .topbar-row .tag { display: inline-flex; align-items: center; gap: 6px; }
+  .topbar-row .tag .dot { width: 10px; height: 10px; background: var(--enem-yellow); border: 2px solid var(--enem-blue-dark); border-radius: 2px; }
+  .progress { width: 100%; height: 8px; background: #d9dfe9; border-radius: 99px; overflow: hidden; }
+  .progress > div { height: 100%; background: var(--enem-blue); border-radius: 99px; transition: width .3s ease-out; }
+
+  /* Folha (cartão) */
+  .sheet {
+    width: 100%; max-width: 520px; min-height: 500px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 18px 50px -20px rgba(11,31,68,.35);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .sheet-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 18px;
+    background: var(--enem-blue);
+    color: #fff;
+    border-bottom: 4px solid var(--enem-yellow);
+    font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; gap: 10px;
+  }
+  .sheet-head .brand { display: flex; align-items: center; gap: 8px; }
+  .sheet-head .brand svg { width: 18px; height: 18px; }
+  .sheet-body { padding: 24px 20px 26px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  @media (min-width: 640px) { .sheet-body { padding: 36px 40px 40px; } }
+
+  .screen-enter { animation: enter .25s cubic-bezier(.4,0,.2,1); }
+  @keyframes enter { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: none; } }
+  .fade-enter { animation: fade .25s ease; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Tela inicial */
+  .hero-icon { width: 76px; height: 76px; margin: 0 auto 14px; border-radius: 20px; background: #e8effa; color: var(--enem-blue); display: grid; place-items: center; border: 2px solid #c9d8f0; animation: bob .8s ease-in-out infinite; }
+  .hero-icon svg { width: 40px; height: 40px; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .title { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 22px; line-height: 1.25; text-align: center; color: var(--ink); margin: 0 0 14px; }
+  @media (min-width: 640px) { .title { font-size: 28px; } }
+  .inline-icon { color: var(--enem-blue); width: .95em; height: .95em; margin-left: 4px; vertical-align: -0.1em; }
+  .lead { text-align: center; color: var(--ink-soft); font-size: 15px; line-height: 1.55; font-weight: 500; margin: 0 0 22px; }
+  @media (min-width: 640px) { .lead { font-size: 17px; } }
+
+  .field { display: block; margin-bottom: 12px; }
+  .field-label { display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--enem-blue-dark); margin-bottom: 6px; }
+  .field-label svg { width: 13px; height: 13px; }
+  .field input {
+    width: 100%; font: inherit; font-size: 16px; font-weight: 500; color: var(--ink);
+    padding: 13px 14px; border: 2px solid var(--line); border-radius: 10px; background: #fafbfd;
+    outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  .field input::placeholder { color: #9aa3b2; }
+  .field input:focus { border-color: var(--enem-blue); box-shadow: 0 0 0 4px rgba(27,79,156,.15); background: #fff; }
+
+  .btn {
+    width: 100%; border: 0; cursor: pointer; font: inherit;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 15px 18px; border-radius: 12px;
+    font-size: 17px; font-weight: 800; letter-spacing: .02em;
+    transition: transform .15s, background .15s, opacity .15s, box-shadow .15s;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn svg { width: 20px; height: 20px; }
+  .btn-primary { background: var(--enem-blue); color: #fff; box-shadow: 0 6px 0 var(--enem-blue-dark); }
+  .btn-primary:hover { background: #215db5; }
+  .btn-primary:disabled { background: #c4ccd9; color: #eef1f6; box-shadow: 0 6px 0 #aab3c2; cursor: not-allowed; }
+
+  /* Questão */
+  .q-label { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 14px; }
+  .q-num { font-size: 13px; font-weight: 900; letter-spacing: .16em; color: var(--enem-blue-dark); text-transform: uppercase; border: 2px solid var(--enem-blue-dark); padding: 5px 12px; border-radius: 6px; }
+  .q-badge { width: 54px; height: 54px; margin: 0 auto 14px; border-radius: 50%; background: var(--enem-yellow); color: var(--enem-navy); display: grid; place-items: center; box-shadow: 0 0 0 6px #fff4cf; animation: pop .35s cubic-bezier(.34,1.56,.64,1); }
+  .q-badge svg { width: 28px; height: 28px; }
+  @keyframes pop { from { transform: scale(.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .q-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 19px; line-height: 1.4; font-weight: 600; text-align: center; margin: 0 0 20px; color: var(--ink); }
+  @media (min-width: 640px) { .q-text { font-size: 23px; } }
+  .options { display: flex; flex-direction: column; gap: 10px; max-height: 60vh; overflow-y: auto; padding: 2px; }
+  @media (min-width: 640px) { .options { max-height: none; } }
+  .opt {
+    display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; cursor: pointer;
+    font: inherit; color: var(--ink); background: #fff;
+    border: 2px solid var(--line); border-radius: 12px; padding: 12px 14px;
+    transition: border-color .15s, background .15s, transform .15s;
+  }
+  .opt:hover { border-color: var(--enem-blue); background: #f4f8ff; transform: translateY(-2px); }
+  .opt:active { transform: scale(.98); }
+  .opt .bubble {
+    width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+    border: 2px solid var(--ink); display: grid; place-items: center;
+    font-weight: 800; font-size: 14px; color: var(--ink); background: #fff;
+    transition: background .15s, color .15s;
+  }
+  .opt .label { flex: 1; font-size: 15px; font-weight: 500; line-height: 1.35; }
+  @media (min-width: 640px) { .opt .label { font-size: 17px; } }
+  .opt .ico { width: 36px; height: 36px; border-radius: 10px; background: #eef3fb; color: var(--enem-blue); display: grid; place-items: center; flex-shrink: 0; transition: transform .2s; }
+  .opt .ico svg { width: 20px; height: 20px; }
+  .opt:hover .ico { transform: scale(1.1); }
+  .opt.marked { border-color: var(--enem-blue); background: #f4f8ff; }
+  .opt.marked .bubble { background: var(--ink); color: #fff; }
+
+  /* Telas de transição */
+  .interstitial { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px 24px; color: #fff; cursor: pointer; }
+  .interstitial.blue { background: linear-gradient(160deg, #1e3a8a, var(--enem-navy)); }
+  .interstitial.red { animation: redfade 8s linear forwards; overflow-y: auto; padding-top: 32px; padding-bottom: 40px; }
+  @keyframes redfade { 0% { background: #ef4444; } 25% { background: #dc2626; } 50% { background: #b91c1c; } 75% { background: #991b1b; } 100% { background: #7f1d1d; } }
+  .big-icon { width: 96px; height: 96px; color: #fff; margin-bottom: 26px; animation: pop .4s ease; }
+  .big-icon svg { width: 100%; height: 100%; }
+  .inter-title { font-size: 24px; font-weight: 800; line-height: 1.25; margin: 0 0 30px; }
+  @media (min-width: 640px) { .inter-title { font-size: 32px; } }
+  .inter-bar { width: 100%; height: 8px; background: rgba(255,255,255,.2); border-radius: 99px; overflow: hidden; margin-bottom: 14px; }
+  .inter-bar > div { height: 100%; background: #fff; width: 0; transition: width .08s linear; }
+  .inter-hint { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 0; }
+  .pill { width: 100%; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 12px 14px; font-weight: 800; font-size: 15px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .pill svg { width: 18px; height: 18px; opacity: .85; }
+  .countdown-box { width: 100%; background: rgba(0,0,0,.18); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 16px; margin: 6px 0 20px; }
+  .countdown-box p { margin: 0 0 12px; font-weight: 800; font-size: 15px; }
+  .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .countdown div { background: rgba(255,255,255,.95); color: #7f1d1d; border-radius: 10px; padding: 10px 2px 8px; }
+  .countdown b { display: block; font-size: 24px; font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1; }
+  .countdown span { display: block; font-size: 9px; font-weight: 800; letter-spacing: .1em; margin-top: 4px; color: #b91c1c; }
+  .inter-text { font-size: 14px; line-height: 1.6; font-weight: 600; color: rgba(255,255,255,.95); margin: 0 0 22px; }
+  @media (min-width: 640px) { .inter-text { font-size: 16px; } }
+
+  /* Tela de aprovação */
+  .overlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; }
+  .overlay.light { background: #f3f5f9; }
+  .overlay.gradient { background: linear-gradient(140deg, #1e3a8a, #4f46e5); }
+  .approval { width: 100%; max-width: 380px; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 25px 60px -15px rgba(11,31,68,.4); border: 1px solid var(--line); }
+  .approval-head { background: var(--enem-blue); border-bottom: 4px solid var(--enem-yellow); color: #fff; text-align: center; padding: 14px; }
+  .approval-head small { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 10px; letter-spacing: .18em; font-weight: 800; opacity: .8; text-transform: uppercase; }
+  .approval-head small svg { width: 14px; height: 14px; }
+  .approval-head strong { display: block; font-size: 18px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin-top: 4px; word-break: break-word; }
+  .approval img { display: block; width: 100%; height: auto; background: #f5f8ff; }
+  .approval-foot { padding: 22px; text-align: center; }
+  .approval-foot h3 { margin: 0 0 16px; font-size: 22px; font-weight: 900; color: var(--ink); }
+  .btn-grad { background: linear-gradient(90deg, #3b82f6, #7c3aed); color: #fff; box-shadow: 0 10px 25px -10px rgba(124,58,237,.6); }
+  .btn-grad:hover svg { transform: rotate(12deg); }
+  .btn-grad svg { transition: transform .2s; }
+
+  /* Tela "a real" */
+  .real { width: 100%; max-width: 440px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); backdrop-filter: blur(10px); border-radius: 26px; padding: 28px 22px; color: #fff; text-align: center; }
+  @media (min-width: 640px) { .real { padding: 40px; } }
+  .real h2 { font-size: 26px; font-weight: 900; line-height: 1.2; margin: 0 0 22px; }
+  .real p { margin: 0 0 18px; line-height: 1.6; }
+  .real .p1 { font-size: 15px; font-weight: 500; color: rgba(255,255,255,.9); }
+  .real .p2 { font-size: 15px; font-weight: 700; font-style: italic; color: rgba(255,255,255,.8); }
+  .real .p3 { font-size: 17px; font-weight: 700; }
+  .real .p4 { font-size: 17px; font-weight: 900; padding-top: 6px; margin-bottom: 26px; }
+  .real .p3 svg { color: var(--enem-yellow); }
+  .btn-cta { background: linear-gradient(90deg, #ff5722, #ff2e2e); color: #fff; font-size: 19px; font-weight: 900; padding: 18px; box-shadow: 0 10px 30px -10px rgba(255,46,46,.7); }
+  .btn-cta:hover { background: linear-gradient(90deg, #ff6d3e, #ff4444); }
+
+  /* VSL */
+  .vsl-text { font-family: 'Source Serif 4', Georgia, serif; font-size: 18px; line-height: 1.5; font-weight: 700; text-align: center; margin: 0 0 22px; color: var(--ink); }
+  @media (min-width: 640px) { .vsl-text { font-size: 22px; } }
+  .vsl-player { width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: #0b1f44; box-shadow: 0 18px 40px -18px rgba(11,31,68,.6); }
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1223307489902324&ev=PageView&noscript=1"
+/></noscript>
+
+<div id="app" class="app"></div>
+
+<script>
+(function () {
+  // ---------- Ícones SVG (substituem todos os emojis) ----------
+  var P = {
+    'book-open': '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>',
+    'battery-low': '<rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 11v2"/><path d="M6 11v2"/>',
+    'compass': '<circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/>',
+    'timer': '<path d="M10 2h4"/><path d="M12 14l3-3"/><circle cx="12" cy="14" r="8"/>',
+    'help-circle': '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
+    'split': '<path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3"/><path d="m15 9 6-6"/>',
+    'rotate-ccw': '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>',
+    'dice': '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M16 8h.01"/><path d="M8 8h.01"/><path d="M8 16h.01"/><path d="M16 16h.01"/><path d="M12 12h.01"/>',
+    'check-circle': '<circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>',
+    'brain': '<path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M12 5v13"/>',
+    'face-angry': '<circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><path d="M7.5 8 10 9"/><path d="m14 9 2.5-1"/><path d="M9 10h.01"/><path d="M15 10h.01"/>',
+    'face-frown': '<circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><path d="M9 9h.01"/><path d="M15 9h.01"/>',
+    'face-sad': '<circle cx="12" cy="12" r="10"/><path d="M16 17s-1.5-2-4-2-4 2-4 2"/><path d="M9 9h.01"/><path d="M15 9h.01"/><path d="M15.5 11.2c.7 1 .7 1.8 0 2.3-.7-.5-.7-1.3 0-2.3z"/>',
+    'face-meh': '<circle cx="12" cy="12" r="10"/><path d="M8 15h8"/><path d="M9 9h.01"/><path d="M15 9h.01"/>',
+    'face-smile': '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/>',
+    'hourglass': '<path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>',
+    'zap': '<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>',
+    'heart': '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+    'sparkles': '<path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/>',
+    'thumbs-up': '<path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>',
+    'target': '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+    'flame': '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+    'alarm': '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3 2 6"/><path d="m22 6-3-3"/>',
+    'shield-check': '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+    'trophy': '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
+    'droplet': '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+    'gift': '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>',
+    'star': '<path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/>',
+    'calendar': '<path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/>',
+    'chevron-right': '<path d="m9 18 6-6-6-6"/>',
+    'user': '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+    'graduation': '<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>',
+    'pencil': '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
+    'file-text': '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>'
+  };
+  function icon(name, sw) {
+    return '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 2) +
+      '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + P[name] + '</svg>';
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
+  }
+
+  // ---------- Perguntas ----------
+  var QUESTIONS = [
+    { id: 1, question: "Quando você abre um simulado do ENEM e vê aqueles textos gigantescos na prova, qual é o seu primeiro pensamento?", headerIcon: "book-open", options: [
+      { label: "Bate um desespero só de pensar no cansaço", value: "desespero", icon: "battery-low" },
+      { label: "Me sinto perdida, não sei nem por onde começar a ler", value: "perdida", icon: "compass" },
+      { label: "Já começo a calcular se vai dar tempo de fazer tudo", value: "tempo", icon: "timer" },
+      { label: "Fico tranquila, leio tudo bem rápido", value: "tranquila", icon: "face-smile" } ] },
+    { id: 2, question: "O que mais acontece com você na hora de marcar a resposta de uma questão?", headerIcon: "help-circle", options: [
+      { label: "Fico sempre em dúvida entre duas e acabo marcando a errada", value: "errada", icon: "split" },
+      { label: "O texto é tão longo que eu esqueço o que a questão pediu", value: "esqueço", icon: "rotate-ccw" },
+      { label: "Eu chuto várias no final porque não deu tempo de ler", value: "chuto", icon: "dice" },
+      { label: "Quase sempre marco a certa com certeza", value: "certa", icon: "check-circle" } ] },
+    { id: 3, question: "Você já teve a sensação de ter estudado a matéria o ano todo, mas na hora da prova a banca consegue te confundir com as alternativas?", headerIcon: "brain", options: [
+      { label: "Direto! Parece que eles fazem de propósito", value: "direto", icon: "face-angry" },
+      { label: "Às vezes eu caio nas pegadinhas", value: "asvezes", icon: "face-frown" },
+      { label: "Raramente acontece comigo", value: "raramente", icon: "face-meh" },
+      { label: "Nunca, eu sempre entendo o que a questão quer", value: "nunca", icon: "face-smile" } ] },
+    { id: 4, question: 'No último ENEM ou simulado que você fez, você precisou "chutar no escuro" questões inteiras no final porque o tempo acabou?', headerIcon: "hourglass", options: [
+      { label: "Várias, não deu tempo nem de ler o enunciado", value: "varias", icon: "face-sad" },
+      { label: "Algumas, a prova é muito cansativa", value: "algumas", icon: "face-frown" },
+      { label: "Quase não chutei, controlei bem o tempo", value: "quase_nao", icon: "face-meh" },
+      { label: "Nenhuma, terminei com folga", value: "nenhuma", icon: "face-smile" } ] },
+    { id: 5, question: 'Se existisse uma forma de você descobrir a resposta correta de uma questão apenas batendo o olho em 2 ou 3 "palavras específicas" no enunciado, sem ler o texto todo... o que isso mudaria pra você?', headerIcon: "zap", options: [
+      { label: "Salvaria minha nota (e sobraria tempo pra redação!)", value: "salvaria", icon: "heart" },
+      { label: "Seria um sonho, eu pararia de levar rasteira das pegadinhas", value: "sonho", icon: "sparkles" },
+      { label: "Ajudaria muito, mas acho difícil isso existir", value: "ajudaria", icon: "help-circle" },
+      { label: "Não mudaria tanto, prefiro ler o texto completo", value: "nao_mudaria", icon: "thumbs-up" } ] },
+    { id: 6, question: "Hoje, com a forma que você resolve questões, você sente que teria energia mental para fazer 90 questões + Redação se o ENEM fosse amanhã?", headerIcon: "target", options: [
+      { label: "Nem pensar, minha mente fritaria", value: "nem_pensar", icon: "flame" },
+      { label: "Eu até tentaria, mas estouraria o tempo da prova", value: "tentaria", icon: "alarm" },
+      { label: "Até que sim, mas o cansaço me faria errar bobeira", value: "sim_cansaco", icon: "battery-low" },
+      { label: "Sim, me preparei bem para não me cansar", value: "sim_preparada", icon: "shield-check" } ] },
+    { id: 7, question: "Se você finalmente parasse de lutar contra o relógio, conseguisse resolver as questões com estratégia e visse o seu nome na lista de aprovados do curso dos seus sonhos... como você se sentiria hoje?", headerIcon: "trophy", options: [
+      { label: "Seria o dia mais feliz da minha vida", value: "feliz", icon: "heart" },
+      { label: "Eu choraria de emoção (e de alívio)", value: "choraria", icon: "droplet" },
+      { label: "Eu me sentiria finalmente recompensada", value: "recompensada", icon: "gift" },
+      { label: "Seria o fim de uma longa jornada de estudos", value: "fim_jornada", icon: "star" } ] }
+  ];
+  var LETTERS = ['A', 'B', 'C', 'D', 'E'];
+  var TOTAL = 12;
+  var EXAM_DATE = new Date("2026-11-01T13:00:00");
+  var AUDIO_CLOCK = "https://criadorinteligente.com.br/wp-content/uploads/2026/01/audiorelogio.mp3";
+  var AUDIO_APPROVAL = "https://criadorinteligente.com.br/wp-content/uploads/2026/01/teladeaprovacao.mp3";
+  var IMG_APPROVAL = "https://criadorinteligente.com.br/wp-content/uploads/2026/01/teladeaprovacao.webp";
+  var VTURB_SRC = "https://scripts.converteai.net/76b93061-bf22-466e-ab7a-c04c213b8810/players/69f64d3730090a44b951fe01/v4/player.js";
+
+  var state = { idx: 0, name: "", mainGoal: "", answers: {} };
+  var cleanup = [];
+  var app = document.getElementById('app');
+
+  function next() { state.idx += 1; render(); }
+  function runCleanup() { cleanup.forEach(function (fn) { try { fn(); } catch (e) {} }); cleanup = []; }
+  function playAudio(src) {
+    var a = new Audio(src);
+    a.play().catch(function (err) { console.log("Audio play blocked", err); });
+    cleanup.push(function () { a.pause(); });
+  }
+
+  function topbar() {
+    var i = state.idx;
+    if (i === 0 || i >= 10) return '';
+    var pct = i / TOTAL * 100;
+    return '<div class="topbar fade-enter"><div class="topbar-row"><span class="tag"><span class="dot"></span>ENEM 2026</span><span>' +
+      Math.round(pct) + '%</span></div><div class="progress"><div style="width:' + pct + '%"></div></div></div>';
+  }
+  function sheetHead(right) {
+    return '<div class="sheet-head"><span class="brand">' + icon('pencil', 2.4) + 'Caderno de Questões</span><span>' + right + '</span></div>';
+  }
+
+  // ---------- Telas ----------
+  function screenStart() {
+    return '<div class="sheet screen-enter">' + sheetHead('Identificação') +
+      '<div class="sheet-body">' +
+        '<div class="hero-icon">' + icon('book-open') + '</div>' +
+        '<h1 class="title">Eaii! Quero muito te ajudar a destravar sua nota no ENEM e parar de sofrer com aqueles textos gigantescos' + icon('book-open', 2.4).replace('class="icon"', 'class="icon inline-icon"') + '</h1>' +
+        '<p class="lead">Mas antes, preciso saber seu nome e o curso que você quer passar. <br><br> Assim eu consigo te mostrar um atalho que faça sentido pro seu objetivo.</p>' +
+        '<label class="field"><span class="field-label">' + icon('user') + 'Nome do participante</span><input id="in-name" type="text" placeholder="Seu nome" autocomplete="given-name"></label>' +
+        '<label class="field"><span class="field-label">' + icon('graduation') + 'Curso pretendido</span><input id="in-goal" type="text" placeholder="Qual curso você quer passar?"></label>' +
+        '<div style="padding-top:8px"><button id="btn-start" class="btn btn-primary" disabled>Começar ' + icon('chevron-right', 2.6) + '</button></div>' +
+      '</div></div>';
+  }
+  function bindStart() {
+    var n = document.getElementById('in-name'), g = document.getElementById('in-goal'), b = document.getElementById('btn-start');
+    function check() { b.disabled = !(n.value.trim() && g.value.trim()); }
+    n.addEventListener('input', check); g.addEventListener('input', check);
+    function go() { if (b.disabled) return; state.name = n.value; state.mainGoal = g.value; state.idx = 1; render(); }
+    b.addEventListener('click', go);
+    [n, g].forEach(function (el) { el.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); }); });
+  }
+
+  function screenQuestion(q) {
+    var num = q.id < 10 ? '0' + q.id : q.id;
+    var opts = q.options.map(function (o, k) {
+      return '<button class="opt" data-value="' + esc(o.value) + '"><span class="bubble">' + LETTERS[k] + '</span><span class="label">' +
+        esc(o.label) + '</span><span class="ico">' + icon(o.icon) + '</span></button>';
+    }).join('');
+    return '<div class="sheet screen-enter">' + sheetHead(num + ' / 07') +
+      '<div class="sheet-body">' +
+        '<div class="q-badge">' + icon(q.headerIcon) + '</div>' +
+        '<div class="q-label"><span class="q-num">Questão ' + num + '</span></div>' +
+        '<h2 class="q-text">' + esc(q.question) + '</h2>' +
+        '<div class="options">' + opts + '</div>' +
+      '</div></div>';
+  }
+  function bindQuestion(q) {
+    var locked = false;
+    app.querySelectorAll('.opt').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (locked) return; locked = true;
+        btn.classList.add('marked');
+        setTimeout(function () { state.answers[q.id] = btn.getAttribute('data-value'); next(); }, 220);
+      });
+    });
+  }
+
+  function autoAdvance(barEl, ms) {
+    var p = 0;
+    var iv = setInterval(function () { p = Math.min(100, p + 1); barEl.style.width = p + '%'; if (p >= 100) clearInterval(iv); }, 80);
+    var to = setTimeout(next, ms);
+    cleanup.push(function () { clearInterval(iv); clearTimeout(to); });
+  }
+
+  function screenEmpathy() {
+    return '<div class="sheet screen-enter"><div class="interstitial blue" id="tap">' +
+      '<div class="big-icon">' + icon('face-frown', 1.5) + '</div>' +
+      '<h2 class="inter-title">Eu entendo exatamente como você se sente... Ler aqueles textos infinitos drena toda a nossa energia e o tempo da prova parece que voa, né?</h2>' +
+      '<div style="width:100%;padding-top:16px"><div class="inter-bar"><div id="bar"></div></div>' +
+      '<p class="inter-hint">Clique na tela para continuar ou aguarde...</p></div>' +
+    '</div></div>';
+  }
+  function bindTap() {
+    document.getElementById('tap').addEventListener('click', next);
+    autoAdvance(document.getElementById('bar'), 8000);
+  }
+
+  function timeLeft() {
+    var diff = EXAM_DATE.getTime() - Date.now();
+    if (diff <= 0) return { d: 0, h: 0, m: 0, s: 0 };
+    return { d: Math.floor(diff / 864e5), h: Math.floor(diff / 36e5 % 24), m: Math.floor(diff / 6e4 % 60), s: Math.floor(diff / 1e3 % 60) };
+  }
+  function monthsLeft() {
+    var now = new Date();
+    var m = (EXAM_DATE.getFullYear() - now.getFullYear()) * 12 + EXAM_DATE.getMonth() - now.getMonth();
+    if (now.getDate() > EXAM_DATE.getDate()) m--;
+    return Math.max(0, m);
+  }
+  function screenCountdown() {
+    var t = timeLeft();
+    var cells = [['d', t.d, 'DIAS'], ['h', t.h, 'HORAS'], ['m', t.m, 'MIN'], ['s', t.s, 'SEG']].map(function (c) {
+      return '<div><b id="cd-' + c[0] + '">' + c[1] + '</b><span>' + c[2] + '</span></div>';
+    }).join('');
+    return '<div class="sheet screen-enter"><div class="interstitial red" id="tap">' +
+      '<div class="big-icon" style="width:72px;height:72px;opacity:.85;margin-bottom:18px">' + icon('calendar', 1.5) + '</div>' +
+      '<h2 class="inter-title" style="margin-bottom:20px">Os dias estão passando...</h2>' +
+      '<div class="pill">' + icon('calendar') + 'Hoje: ' + new Date().toLocaleDateString('pt-BR') + '</div>' +
+      '<div class="pill">' + icon('pencil') + 'ENEM 2026: NOVEMBRO! (Faltam ' + monthsLeft() + ' Meses)</div>' +
+      '<div class="countdown-box"><p>Faltam aproximadamente:</p><div class="countdown">' + cells + '</div></div>' +
+      '<p class="inter-text">Eu também já perdi muito tempo lendo textos inúteis na prova e tiver que chutar várias no final... até entender que o problema não era falta de estudo, era a falta de uma estratégia para ler só o que importa.</p>' +
+      '<div style="width:100%"><div class="inter-bar"><div id="bar"></div></div>' +
+      '<p class="inter-hint">Clique na tela para continuar ou aguarde...</p></div>' +
+    '</div></div>';
+  }
+  function bindCountdown() {
+    playAudio(AUDIO_CLOCK);
+    var iv = setInterval(function () {
+      var t = timeLeft();
+      ['d', 'h', 'm', 's'].forEach(function (k) { var el = document.getElementById('cd-' + k); if (el) el.textContent = t[k]; });
+    }, 1000);
+    cleanup.push(function () { clearInterval(iv); });
+    bindTap();
+  }
+
+  function screenApproval() {
+    return '<div class="overlay light fade-enter"><div class="approval">' +
+      '<div class="approval-head"><small>' + icon('graduation') + 'Resultado</small><strong>' + esc(state.mainGoal) + '</strong></div>' +
+      '<img src="' + IMG_APPROVAL + '" alt="Sua Aprovação">' +
+      '<div class="approval-foot"><h3>Parabéns ' + esc(state.name) + '!</h3>' +
+      '<button id="btn-next" class="btn btn-grad">Continuar ' + icon('sparkles') + '</button></div>' +
+    '</div></div>';
+  }
+  function bindApproval() {
+    document.getElementById('btn-next').addEventListener('click', next);
+    playAudio(AUDIO_APPROVAL);
+    import("https://esm.sh/canvas-confetti").then(function (mod) {
+      var confetti = mod.default;
+      confetti({ particleCount: 150, spread: 70, origin: { y: .6 }, zIndex: 1000 });
+      var end = Date.now() + 1000;
+      (function frame() {
+        confetti({ particleCount: 2, angle: 60, spread: 55, origin: { x: 0 }, zIndex: 1000 });
+        confetti({ particleCount: 2, angle: 120, spread: 55, origin: { x: 1 }, zIndex: 1000 });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      })();
+    }).catch(function () {});
+  }
+
+  function screenReal() {
+    return '<div class="overlay gradient fade-enter"><div class="real screen-enter">' +
+      '<h2>Agora, deixa eu te falar a real...</h2>' +
+      '<p class="p1">Se você continuar fazendo tudo como tem feito até agora...</p>' +
+      '<p class="p2">Lendo textos gigantescos, caindo nas pegadinhas das alternativas e lutando contra o tempo...</p>' +
+      '<p class="p3">Essa tela de aprovação vai continuar sendo só um sonho distante.</p>' +
+      '<p class="p4">Mas se você quiser, eu posso te mostrar o exato padrão de gatilhos que eu usei para fazer 140 acertos e passar na Federal direto do ensino médio, sem precisar ler os textos da prova.</p>' +
+      '<button id="btn-next" class="btn btn-cta">Quero Saber Como!</button>' +
+    '</div></div>';
+  }
+  function bindReal() { document.getElementById('btn-next').addEventListener('click', next); }
+
+  function screenVsl() {
+    return '<div class="sheet screen-enter" style="max-width:640px;min-height:0">' + sheetHead('Gabarito') +
+      '<div class="sheet-body">' +
+        '<p class="vsl-text">E foi assim que eu ajudei mais de 12.000 alunos pelo Brasil todo a identificar a resposta certa no ENEM em segundos.</p>' +
+        '<div class="vsl-player"><vturb-smartplayer id="vid-69f64d3730090a44b951fe01" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer></div>' +
+      '</div></div>';
+  }
+  function bindVsl() {
+    var s = document.createElement('script');
+    s.src = VTURB_SRC; s.async = true;
+    document.head.appendChild(s);
+  }
+
+  // ---------- Fluxo (mesma ordem do original) ----------
+  function render() {
+    runCleanup();
+    var i = state.idx, html, bind;
+    if (i === 0) { html = screenStart(); bind = bindStart; }
+    else if (i >= 1 && i <= 3) { var q1 = QUESTIONS[i - 1]; html = screenQuestion(q1); bind = function () { bindQuestion(q1); }; }
+    else if (i === 4) { html = screenEmpathy(); bind = bindTap; }
+    else if (i === 5) { var q2 = QUESTIONS[3]; html = screenQuestion(q2); bind = function () { bindQuestion(q2); }; }
+    else if (i === 6) { html = screenCountdown(); bind = bindCountdown; }
+    else if (i >= 7 && i <= 9) { var q3 = QUESTIONS[i - 3]; html = screenQuestion(q3); bind = function () { bindQuestion(q3); }; }
+    else if (i === 10) { html = screenApproval(); bind = bindApproval; }
+    else if (i === 11) { html = screenReal(); bind = bindReal; }
+    else { html = screenVsl(); bind = bindVsl; }
+    app.className = 'app' + (i === 10 || i === 11 ? ' fullscreen' : '');
+    app.innerHTML = topbar() + html;
+    window.scrollTo(0, 0);
+    bind();
+  }
+  render();
+})();
+</script>
+</body>
+</html>
