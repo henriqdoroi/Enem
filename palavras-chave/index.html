@@ -355,7 +355,12 @@ fbq('track', 'PageView');
     0%, 100% { box-shadow: 0 6px 0 var(--green-dark), 0 0 0 0 rgba(18,161,80,.55); }
     50% { box-shadow: 0 6px 0 var(--green-dark), 0 0 0 12px rgba(18,161,80,0); }
   }
-  .hero .btn-primary { animation: glow-blue 2.2s ease-in-out infinite; }
+  .hero .btn-primary { animation: breathe-blue 2.8s ease-in-out infinite; }
+  .hero .btn-primary:hover { animation-play-state: paused; }
+  @keyframes breathe-blue {
+    0%, 100% { transform: scale(1); box-shadow: 0 6px 0 var(--blue-dark), 0 0 0 0 rgba(27,79,156,.45); }
+    50% { transform: scale(1.045); box-shadow: 0 6px 0 var(--blue-dark), 0 0 0 14px rgba(27,79,156,0); }
+  }
   @keyframes glow-blue {
     0%, 100% { box-shadow: 0 6px 0 var(--blue-dark), 0 0 0 0 rgba(27,79,156,.5); }
     50% { box-shadow: 0 6px 0 var(--blue-dark), 0 0 0 12px rgba(27,79,156,0); }
