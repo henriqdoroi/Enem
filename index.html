@@ -467,7 +467,7 @@ src="https://www.facebook.com/tr?id=1223307489902324&ev=PageView&noscript=1"
   function screenApproval() {
     return '<div class="overlay light fade-enter"><div class="approval">' +
       '<div class="approval-head"><small>' + icon('graduation') + 'Resultado</small><strong>' + esc(state.mainGoal) + '</strong></div>' +
-      '<img src="' + IMG_APPROVAL + '" alt="Sua Aprovação">' +
+      '<img src="' + IMG_APPROVAL + '" alt="Sua Aprovação" onerror="this.style.display='none'">' +
       '<div class="approval-foot"><h3>Parabéns ' + esc(state.name) + '!</h3>' +
       '<button id="btn-next" class="btn btn-grad">Continuar ' + icon('sparkles') + '</button></div>' +
     '</div></div>';
