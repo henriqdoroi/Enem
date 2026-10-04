@@ -195,7 +195,8 @@ fbq('track', 'PageView');
   .until svg { width: 15px; height: 15px; }
   @keyframes pulse { 50% { opacity: .5; } }
   .plans { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: stretch; }
-  @media (min-width: 860px) { .plans { grid-template-columns: 1fr 1fr; } .plan.basic { order: 1; } .plan.full { order: 2; } }
+  .plan.basic { order: 1; } .plan.full { order: 2; }
+  @media (min-width: 860px) { .plans { grid-template-columns: 1fr 1fr; } }
   .plan { position: relative; background: var(--paper); border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; border: 2px solid var(--line); box-shadow: 0 24px 50px -30px rgba(11,31,68,.45); }
   .plan.full { border: 3px solid var(--blue); box-shadow: 0 0 0 6px rgba(27,79,156,.12), 0 30px 70px -25px rgba(27,79,156,.6); }
   .plan-band { height: 10px; background: #c4ccd9; }
