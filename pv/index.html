@@ -225,7 +225,7 @@ fbq('track', 'PageView');
   .plan-note { margin: 14px 0 0; text-align: center; font-size: 13px; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 6px; }
   .plan-note svg { width: 14px; height: 14px; color: var(--green); }
 
-  /* Popup R$ 27,90 */
+  /* Popup R$ 17,90 */
   .modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(11,31,68,.72); backdrop-filter: blur(4px); overflow-y: auto; animation: fadeOnly .2s ease-out; }
   .modal[hidden] { display: none; }
   @keyframes fadeOnly { from { opacity: 0; } to { opacity: 1; } }
@@ -393,8 +393,8 @@ src="https://www.facebook.com/tr?id=1223307489902324&ev=PageView&noscript=1"
 <script>
 (function () {
   // ===== LINKS DE PAGAMENTO: cole aqui o link de cada plano =====
-  var CHECKOUT_17 = "https://checkout.wiven.com.br/checkout/cmuuqn8sh0cli01pst9xdx3eq?offer=DDSTBYP";  // Plano Básico   R$ 17,90
-  var CHECKOUT_27 = "https://checkout.wiven.com.br/checkout/cmuuqn8sh0cli01pst9xdx3eq?offer=VU06WOA";  // Oferta do popup R$ 27,90
+  var CHECKOUT_17 = "https://checkout.wiven.com.br/checkout/cmuuqn8sh0cli01pst9xdx3eq?offer=DDSTBYP";  // Plano Básico   R$ 10,90
+  var CHECKOUT_27 = "https://checkout.wiven.com.br/checkout/cmuuqn8sh0cli01pst9xdx3eq?offer=VU06WOA";  // Oferta do popup R$ 17,90
   var CHECKOUT_37 = "https://checkout.wiven.com.br/checkout/cmuuqn8sh0cli01pst9xdx3eq?offer=EEMAVY9";  // Plano Completo R$ 37,90
   // ===============================================================
   var U = "https://criadorinteligente.com.br/wp-content/uploads/2026/06/";
@@ -542,7 +542,7 @@ src="https://www.facebook.com/tr?id=1223307489902324&ev=PageView&noscript=1"
       '<div class="plan basic"><div class="plan-band"></div><div class="plan-body">' +
         '<p class="plan-name">Plano Básico</p>' +
         '<p class="from" style="visibility:hidden" aria-hidden="true">De R$ 87,99</p>' +
-        '<h2 class="price"><small>R$</small>17,90</h2>' +
+        '<h2 class="price"><small>R$</small>10,90</h2>' +
         '<p class="life">Acesso Vitalício</p>' +
         itemList(PLAN_17) +
         '<a href="#" class="btn btn-outline js-buy" data-plan="17">QUERO O BÁSICO</a>' +
@@ -590,25 +590,25 @@ src="https://www.facebook.com/tr?id=1223307489902324&ev=PageView&noscript=1"
     '<div class="modal-head">' + icon('alert', 2.4) + 'Espera!</div>' +
     '<button class="modal-x" id="up-close" aria-label="Fechar">' + icon('x', 2.6) + '</button>' +
     '<div class="modal-body">' +
-      '<h3 id="up-title">Leve muito mais por só R$ 10 a mais</h3>' +
+      '<h3 id="up-title">Leve muito mais por só R$ 7 a mais</h3>' +
       '<p class="msub">Tudo do Plano Básico e mais o PDF com as questões oficiais resolvidas.</p>' +
-      '<div class="modal-price"><b><small>R$</small>27,90</b></div>' +
-      '<span class="modal-diff">Só R$ 10 a mais que o Básico</span>' +
+      '<div class="modal-price"><b><small>R$</small>17,90</b></div>' +
+      '<span class="modal-diff">Só R$ 7 a mais que o Básico</span>' +
       itemList(PLAN_27, { onlyIncluded: true, newVs: PLAN_17 }) +
-      '<a href="#" class="btn btn-green js-buy" data-plan="27">SIM, QUERO POR R$ 27,90' + icon('right', 3).replace('class="icon"', 'class="icon arrow"') + '</a>' +
-      '<button class="modal-no js-buy" data-plan="17-final">Não, quero só o Básico por R$ 17,90</button>' +
+      '<a href="#" class="btn btn-green js-buy" data-plan="27">SIM, QUERO POR R$ 17,90' + icon('right', 3).replace('class="icon"', 'class="icon arrow"') + '</a>' +
+      '<button class="modal-no js-buy" data-plan="17-final">Não, quero só o Básico por R$ 10,90</button>' +
       '<p class="link-warn" id="up-warn" hidden></p>' +
     '</div>' +
   '</div></div>' +
 
-  '<div class="sticky-cta" id="sticky"><div class="sc-txt">Palavras-Chave do ENEM<b>a partir de R$ 17,90</b></div><a href="#pricing" class="btn btn-green js-scroll">VER PLANOS</a></div>' +
+  '<div class="sticky-cta" id="sticky"><div class="sc-txt">Palavras-Chave do ENEM<b>a partir de R$ 10,90</b></div><a href="#pricing" class="btn btn-green js-scroll">VER PLANOS</a></div>' +
 
   '<footer><div class="wrap"><div class="f-links"><a href="#">Termos de Uso</a><span aria-hidden="true">|</span><a href="#">Política de Privacidade</a></div>' +
     '<p>Copyright © 2026 Palavras-Chave do ENEM. Todos os direitos reservados.</p></div></footer>';
 
   document.getElementById('root').innerHTML = html;
 
-  // Compra: Básico abre o popup de R$ 27,90; os outros vão direto para o pagamento
+  // Compra: Básico de R$ 10,90 abre o popup de R$ 17,90; os outros vão direto para o pagamento
   var LINKS = { '17-final': CHECKOUT_17, '27': CHECKOUT_27, '37': CHECKOUT_37 };
   var modal = document.getElementById('upsell'), warn = document.getElementById('up-warn'), lastFocus = null;
   function openModal() { lastFocus = document.activeElement; warn.hidden = true; modal.hidden = false; document.body.style.overflow = 'hidden'; modal.querySelector('.btn').focus(); }
@@ -617,7 +617,7 @@ src="https://www.facebook.com/tr?id=1223307489902324&ev=PageView&noscript=1"
     var url = LINKS[plan];
     if (!url) {
       // Link ainda nao configurado: avisa em vez de levar para lugar errado
-      var msg = 'Link de pagamento do plano de R$ ' + (plan === '37' ? '37,90' : plan === '27' ? '27,90' : '17,90') + ' ainda não configurado.';
+      var msg = 'Link de pagamento do plano de R$ ' + (plan === '37' ? '37,90' : plan === '27' ? '17,90' : '10,90') + ' ainda não configurado.';
       if (!modal.hidden) { warn.textContent = msg; warn.hidden = false; }
       else {
         var w = btn.parentNode.querySelector('.link-warn');
